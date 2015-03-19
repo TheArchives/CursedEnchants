@@ -6,4 +6,5 @@ enchantments system more interesting and less OP. It adds "negative enchantments
 or curses, that may be applied randomly when someone goes to enchant their gear.
 
 This plugin is in the early stages, so not much information is available yet. If you
-want to suggest a curse, please feel free to comment on the relevant ticket.
+want to suggest a curse, please feel free to comment on
+[the relevant ticket](https://github.com/TheArchives/CursedEnchants/issues/1).
