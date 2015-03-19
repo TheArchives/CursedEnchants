@@ -1,0 +1,50 @@
+# The maximum number of curses that can be applied to any one item
+# Set this to "same" to match the number of applied enchantments being set at the time
+
+max_curses: same
+
+# List of curses and their settings
+# Set a chance to 0 to disable it, or to 100 or higher to have it occur
+# every time
+
+curses:
+    # Let's use "Fragile" as an example
+    fragile:  # The name of the enchant
+        # This makes tools/weapons break faster
+        overall: 15  # The overall chance of this being applied, as a percentage
+        levels:  # Number of extra points of damage to do per use
+            # The weighted chance per level
+            # Add them all up and you'll have the chance-per-x. For example,
+            # the below adds up to 15, so level III has a 3-in-15 chance of
+            # being applied if this enchant is picked
+            I: 5
+            II: 4
+            III: 3
+            IV: 2
+            V: 1
+    giant:
+        # This makes tools give mining fatigue while being held
+        overall:  20
+        levels:  # The level of mining fatigue to give
+            I: 8
+            II: 2
+    healing:
+        # This makes tools/weapons heal their targets instead of damaging them
+        # It has no levels
+        overall: 5
+    heavy:
+        # This makes armor cause a slowness effect on those that wear it
+        # This doesn't stack
+        overall: 5
+        levels:  # The level of slowness to apply
+            I: 8
+            II: 2
+    spiky:
+        # This makes tools/weapons hurt the wielder when used
+        overall: 5
+        levels: # The number of damage points to apply (players start with 20)
+            I: 21
+            II: 11
+            III: 5
+            IV: 2
+            V: 1

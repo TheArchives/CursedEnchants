@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'findbugs'
+    id 'maven-publish'
+    id 'ivy-publish'
+}
+
+sourceCompatibility = 1.7
+version = '0.0.1'
+group = "com.archivesmc.cursedenchants"
+
+repositories {
+    mavenCentral()
+
+    maven {
+        url "https://hub.spigotmc.org/nexus/content/groups/public"
+        name "Spigot"
+    }
+}
+
+publishing {
+    publications {
+        ivyJava(IvyPublication) {
+            from components.java
+        }
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        ivy {
+            url "/var/www/gserv/cherry/repos/ivy/"
+        }
+
+        maven {
+            url "/var/www/gserv/cherry/repos/maven/"
+        }
+    }
+}
+
+defaultTasks 'clean', 'build', 'jar'
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile "org.spigotmc:spigot-api:1.8.3-R0.1-SNAPSHOT"
+}
+
+jar {
+    from sourceSets.main.java
+}
