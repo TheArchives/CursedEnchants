@@ -13,4 +13,23 @@ public class Config {
         this.plugin.saveDefaultConfig();
         this.plugin.reloadConfig();
     }
+
+    public int getMaxCurses() {
+        String r = this.config.getString("max_curses");
+
+        if (r.equalsIgnoreCase("same")) {
+            return -1;
+        }
+
+        try {
+            return Integer.parseInt(r);
+        } catch (NumberFormatException e) {
+            this.plugin.getLogger().warning(String.format("%s is not a valid number!", r));
+            return -1;
+        }
+    }
+
+    public int getTickInterval() {
+        return this.config.getInt("tickrate");
+    }
 }
